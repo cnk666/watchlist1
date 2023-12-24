@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Movie Search</h3>
+<form method="POST" action="{{ url_for('search') }}">
+    <label for="search_term">Search for a movie:</label>
+    <input type="text" id="search_term" name="search_term" required>
+    <button type="submit">Search</button>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</form>
+{% endblock %}

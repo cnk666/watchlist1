@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Search Results</h3>
+
+    {% if movies_by_title %}
+        <ul>
+            {% for movie in movies_by_title %}
+                <li>{{ movie.title }} ({{ movie.year }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if movies_by_actor %}
+        <ul>
+            {% for movie in movies_by_actor %}
+                <li>{{ movie.title }} ({{ movie.year }}) - {{ movie.actor }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if not movies_by_title and not movies_by_actor %}
+        <p>No results found.</p>
+    {% endif %}
+    <a href="{{ url_for('search') }}">Back to Search</a>
+{% endblock %}
